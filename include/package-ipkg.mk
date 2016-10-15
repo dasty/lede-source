@@ -177,7 +177,9 @@ $(_endef)
     $$(IPKG_$(1)): $(STAMP_BUILT) $(INCLUDE_DIR)/package-ipkg.mk
 	@rm -rf $$(IDIR_$(1)) $$(call opkg_package_files,$(1))
 	mkdir -p $(PACKAGE_DIR) $$(IDIR_$(1))/CONTROL $(PKG_INFO_DIR)
+	$(foreach hook,$(Hooks/PackageInstall/Pre),$(call $(hook),$$(IDIR_$(1)))$(sep))
 	$(call Package/$(1)/install,$$(IDIR_$(1)))
+	$(foreach hook,$(Hooks/PackageInstall/Post),$(call $(hook),$$(IDIR_$(1)))$(sep))
 	-find $$(IDIR_$(1)) -name 'CVS' -o -name '.svn' -o -name '.#*' -o -name '*~'| $(XARGS) rm -rf
 	@( \
 		find $$(IDIR_$(1)) -name lib\*.so\* -or -name \*.ko | awk -F/ '{ print $$$$NF }'; \
