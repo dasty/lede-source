@@ -278,6 +278,9 @@ get_status_led() {
 	rb-sxt5n)
 		status_led="rb:green:power"
 		;;
+	re450)
+		status_led="$board:blue:power"
+		;;
 	routerstation|\
 	routerstation-pro)
 		status_led="ubnt:green:rf"
