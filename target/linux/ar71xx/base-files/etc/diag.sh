@@ -296,7 +296,7 @@ get_status_led() {
 		status_led="rb:green:power"
 		;;
 	re450)
-		status_led="tp-link:blue:system"
+		status_led="$board:blue:power"
 		;;
 	routerstation|\
 	routerstation-pro)

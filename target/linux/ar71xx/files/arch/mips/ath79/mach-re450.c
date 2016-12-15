@@ -74,35 +74,35 @@ static struct flash_platform_data tl_re450_flash_data = {
 
 static struct gpio_led re450_leds_gpio[] __initdata = {
 	{
-		.name		= "tp-link:blue:system",
+		.name		= "re450:blue:power",
 		.gpio		= RE450_GPIO_LED_SYSTEM,
 		.active_low	= 1,
 	},
 	{
-		.name		= "tp-link:blue:wlan2g",
+		.name		= "re450:blue:wlan2g",
 		.gpio		= RE450_GPIO_LED_WLAN2G,
 		.active_low	= 1,
 	},
 	{
-		.name		= "tp-link:blue:wlan5g",
+		.name		= "re450:blue:wlan5g",
 		.gpio		= RE450_GPIO_LED_WLAN5G,
 		.active_low	= 1,
 	},
 	{
-		.name		= "tp-link:blue:wps",
+		.name		= "re450:blue:wps",
 		.gpio		= RE450_GPIO_LED_JUMPSTART,
 	},
 	{
-		.name		= "tp-link:red:wps",
+		.name		= "re450:red:wps",
 		.gpio		= RE450_GPIO_LED_JUMPSTART_RED,
 	},
 	{
-		.name		= "tp-link:green:lan_data",
+		.name		= "re450:green:lan_data",
 		.gpio		= RE450_GPIO_LED_LAN_DATA,
 		.active_low	= 1,
 	},
 	{
-		.name		= "tp-link:green:lan_link",
+		.name		= "re450:green:lan_link",
 		.gpio		= RE450_GPIO_LED_LAN_LINK,
 		.active_low	= 1,
 	},
@@ -149,7 +149,6 @@ static struct platform_device re450_phy_device = {
 	},
 };
 
-
 static void __init re450_setup(void)
 {
 	u8 *mac = (u8 *) KSEG1ADDR(0x1f610008);
@@ -186,4 +185,3 @@ static void __init re450_setup(void)
 
 MIPS_MACHINE(ATH79_MACH_RE450, "RE450", "TP-LINK RE450",
 	     re450_setup)
-
